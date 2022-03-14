@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'ISKCEHv11'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_784432A9C9D1435CAC8C9ABDAE5FC75C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9BFBDF48C57242249850AF917077831E }}
           package: .
