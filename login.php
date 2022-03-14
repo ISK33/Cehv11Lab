@@ -8,7 +8,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
     exit;
 }
- $publickey = "6LdqxN4eAAAAAKTtwJHxJDpHpfAZFxM5VOnDSIJN";
+ $publickey = "6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e";
 
 // Include config file
 require_once "conn.php";
