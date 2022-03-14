@@ -8,7 +8,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
     exit;
 }
- $publickey = "6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e";
+ $publickey = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
 
 // Include config file
 require_once "conn.php";
@@ -114,10 +114,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               'theme' : 'light'
             });
             widgetId2 = grecaptcha.render(document.getElementById('example2'), {
-              'sitekey' : '6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e'
+              'sitekey' : '6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C'
             });
             grecaptcha.render('example3', {
-              'sitekey' : '6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e',
+              'sitekey' : '6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C',
               'callback' : verifyCallback,
               'theme' : 'dark'
             });
@@ -152,7 +152,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="password" class="form-control"name="password" />
                     <label class="form-label" for="form2Example22">Password</label>
                   </div>
-            <div class="g-recaptcha" data-sitekey="6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e"></div>
+            <div class="g-recaptcha" data-sitekey="6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C"></div>
             <div id="recaptcha-feedback" class="mt-0 mb-3 invalid-feedback d-block">
 </div>
 <?php
