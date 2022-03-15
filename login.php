@@ -6,9 +6,28 @@ session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: index.php");
+	 $recaptcha = $_POST['g-recaptcha-response'];
+   $secret_key = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
+ $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
+          . $secret_key . '&response=' . $recaptcha;
+  
+    // Making request to verify captcha
+    $response = file_get_contents($url);
+  
+    // Response return by google is in
+    // JSON format, so we have to parse
+    // that json
+    $response = json_decode($response);
+  
+    // Checking, if response is true or not
+    if ($response->success = true) {
+       
+    } else {
+        echo '<script>alert("Error in Google reCAPTACHA")</script>';
+    }
+}
     exit;
 }
- $publickey = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
 
 // Include config file
 require_once "conn.php";
