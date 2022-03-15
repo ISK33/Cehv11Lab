@@ -72,18 +72,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         if(!$captcha){ $login_err1 = "Please check the the captcha ";}
 				else{
-					 $url = 'https://www.google.com/recaptcha/api/siteverify?secret='. $secret_key . '&response=' . $recaptcha;
-					 $response = file_get_contents($url);
-  
-    // Response return by google is in
-    // JSON format, so we have to parse
-    // that json
-    $response1 = json_decode($response);
-  
-    // Checking, if response is true or not
-    if ($response1->success = true) {
                             // Redirect user to welcome page
-                            header("location: index.php");
+                            header("location: index.php");}
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err1 = "Please check the the captcha";
