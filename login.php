@@ -5,10 +5,11 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-	           header("location: index.php");
-
+    header("location: index.php");
     exit;
 }
+
+ $publickey = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
 
 // Include config file
 require_once "conn.php";
@@ -64,20 +65,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;   
-				
-	
-                            header("location: index.php");
-
-	
+	if (isset($_POST['remember'])){
+				//set up cookie							
+                            setcookie("role", md5(1), time() + (86400 * 30)); 
+	}
                             // Redirect user to welcome page
+                            header("location: index.php");
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password";
+                            $login_err = "Invalid username or password.";
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password";
+                    $login_err = "Invalid username or password.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -152,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="password" class="form-control"name="password" />
                     <label class="form-label" for="form2Example22">Password</label>
                   </div>
-            <div class="g-recaptcha" data-sitekey="6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C"></div>
+            <div class="g-recaptcha" data-sitekey="6LdqxN4eAAAAAIdu7Z5OReAeEEeGFS0EHA1lBi9e"></div>
             <div id="recaptcha-feedback" class="mt-0 mb-3 invalid-feedback d-block">
 </div>
 <?php
