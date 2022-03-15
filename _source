@@ -1,3 +1,5 @@
+//////////admain page
+
 <?php if (isset($_COOKIE["user"])&&isset($_COOKIE["valid"])){
 	if($_COOKIE["user"]==base64_decode("YWRtaW4=") && $_COOKIE["valid"]==base64_decode("VHJ1ZQ==")){
 	?>
