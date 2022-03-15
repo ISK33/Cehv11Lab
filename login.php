@@ -65,10 +65,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;   
-
+ if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+        if(!$captcha){ $login_err = "Please check the the captcha ";}
+				else
                             // Redirect user to welcome page
                             header("location: index.php");
-                        } else{
+                        } 
+			    else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
                         }
