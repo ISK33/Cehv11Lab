@@ -25,7 +25,6 @@ if (!$link) {
     exit;
 }
 
-echo $connectstr_dbname;
 
 
 ?>
