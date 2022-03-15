@@ -25,7 +25,7 @@ if (!$link) {
     exit;
 }
 
-
+echo $connectstr_dbhost;
 
 
 ?>
