@@ -46,7 +46,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h1 class="cover-heading">Final Challenge</h1>
         <p class="lead"> It's the last challenge but this is not the end</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Log out</a>
+          <a href="logout.php" class="btn btn-lg btn-secondary">Log out</a>
         </p>
       </main>
 
