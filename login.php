@@ -90,12 +90,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Redirect user to welcome page
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err = "Invalid username or password";
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err = "Invalid username or password";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
