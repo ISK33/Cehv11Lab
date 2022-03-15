@@ -27,11 +27,10 @@
 		if($_COOKIE["user"]==base64_decode('YWRtaW4=') && $_COOKIE["valid"]==base64_decode('VHJ1ZQ==')){
 	?>
     <h1 class="my-5">Hi Admin</h1>
-	
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
+	<a href='mems2.jpg' title='Image from freeiconspng.com'><img src='mems2.jpg' width='300' alt='ban, stop icon' /></a>
+
 		
     </p>
-
 
 <form action="" method="get">
 Search <input type="text" size="100" name="search"><br>
@@ -59,7 +58,7 @@ while($row = $result->fetch_assoc() ){
 	}
 		    ?>
 	 
-	<?php }else echo "<br><br><br><h1>You aren't admin</h1> <a href='https://www.freeiconspng.com/img/13412' title='Image from freeiconspng.com'><img src='https://www.freeiconspng.com/uploads/ban-stop-icon-22.png' width='300' alt='ban, stop icon' /></a>"?>
+	<?php }else echo "<br><br><br><h1>You aren't admin</h1> <a href='mems1.jpg' title='Image from freeiconspng.com'><img src='mems1.jpg' width='300' alt='ban, stop icon' /></a>"?>
 
 </body>
 </html>
