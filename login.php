@@ -64,15 +64,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;   
+                            $_SESSION["username"] = $username;  
+				  $secret_key = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
+
  if(isset($_POST['g-recaptcha-response'])){
           $captcha=$_POST['g-recaptcha-response'];
         }
-        if(!$captcha){ $login_err = "Please check the the captcha ";}
-				else
+        if(!$captcha){ $login_err1 = "Please check the the captcha ";}
+				else{
+					 $url = 'https://www.google.com/recaptcha/api/siteverify?secret='. $secret_key . '&response=' . $recaptcha;
+					 $response = file_get_contents($url);
+  
+    // Response return by google is in
+    // JSON format, so we have to parse
+    // that json
+    $response1 = json_decode($response);
+  
+    // Checking, if response is true or not
+    if ($response1->success = true) {
                             // Redirect user to welcome page
                             header("location: index.php");
-                        } 
+                        } else{
+                            // Password is not valid, display a generic error message
+                            $login_err1 = "Please check the the captcha";
+                        }
+				}
 			    else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
@@ -159,10 +175,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div id="recaptcha-feedback" class="mt-0 mb-3 invalid-feedback d-block">
 </div>
 <?php
-		if (isset($_SESSION['message'])){
-			echo $_SESSION['message'];
+		if (isset($login_err1)){
+			echo $login_err1;
 		}
-		unset($_SESSION['message']);
+		unset($login_err1);
 	?>
 </span>
          	<div class="d-flex align-items-center justify-content-center pb-4">
