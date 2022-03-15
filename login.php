@@ -5,27 +5,8 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-	 $recaptcha = $_POST['g-recaptcha-response'];
-   $secret_key = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
- $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
-          . $secret_key . '&response=' . $recaptcha;
-  
-    // Making request to verify captcha
-    $response = file_get_contents($url);
-  
-    // Response return by google is in
-    // JSON format, so we have to parse
-    // that json
-    $response = json_decode($response);
-  
-    // Checking, if response is true or not
-    if ($response->success = true) {
-           header("location: index.php");
+	           header("location: index.php");
 
-    } else {
-        echo '<script>alert("Error in Google reCAPTACHA")</script>';
-    }
-}
     exit;
 }
 
@@ -83,12 +64,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;   
-	if (isset($_POST['remember'])){
-				//set up cookie							
-                            setcookie("role", md5(1), time() + (86400 * 30)); 
-	}
-                            // Redirect user to welcome page
+				
+	 $recaptcha = $_POST['g-recaptcha-response'];
+   $secret_key = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
+ $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
+          . $secret_key . '&response=' . $recaptcha;
+  
+    // Making request to verify captcha
+    $response = file_get_contents($url);
+  
+    // Response return by google is in
+    // JSON format, so we have to parse
+    // that json
+    $response = json_decode($response);
+  
+    // Checking, if response is true or not
+    if ($response->success = true) {
                             header("location: index.php");
+
+    } else {
+        echo '<script>alert("Error in Google reCAPTACHA")</script>';
+    }
+}
+	
+                            // Redirect user to welcome page
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
