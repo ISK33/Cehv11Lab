@@ -5,7 +5,6 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index.php");
 	 $recaptcha = $_POST['g-recaptcha-response'];
    $secret_key = "6LdxaLwaAAAAANb93yCoRBipwlUa4EJ809F3eP0C";
  $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
@@ -21,7 +20,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   
     // Checking, if response is true or not
     if ($response->success = true) {
-       
+           header("location: index.php");
+
     } else {
         echo '<script>alert("Error in Google reCAPTACHA")</script>';
     }
