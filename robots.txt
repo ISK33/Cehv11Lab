@@ -1,3 +1,4 @@
 User-agent:*
 Disallow: /_source
 /_admin
+admin.php
