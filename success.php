@@ -39,13 +39,14 @@
 	?>
     <h1 class="my-5">Hi Admin</h1>
 <h2 class="my-5">Users List</h2>
-		
+		<br> <a href='img3.jpg' title=' '>
+	<img src='img3.jpg' width='300' alt='ban, stop icon' /></a>
     </p>		
 	
 	  <div>
 
 	<?php
-		  $query1 = "SELECT * FROM users ORDER BY id DESC";
+		  $query1 = "SELECT * FROM users ORDER BY id DESC LIMIT 7";
           $query_run = mysqli_query($link, $query1);
           
             if (mysqli_num_rows($query_run) > 0) {
@@ -73,7 +74,7 @@
 		} else echo "<br><br><br><h1>You aren't admin</h1> <a href='mems1.jpg' title='Image from freeiconspng.com'>
 	<img src='mems1.jpg' width='300' alt='ban, stop icon' /></a>";
 		
-	} else echo "<br><br><br><h1>You aren't admin</h1> <a href='mems1.jpg' title='Image from freeiconspng.com'>
+	} else echo "<br><br><br><h1>You aren't admin</h1> <a href='mems1.jpg' title=' '>
 	<img src='mems1.jpg' width='300' alt='ban, stop icon' /></a>";
 	
 	?>
