@@ -45,7 +45,7 @@
 	  <div>
 
 	<?php
-		  $query1 = "SELECT * FROM users ORDER BY id DESC LIMIT 7";
+		  $query1 = "SELECT * FROM users ORDER BY id DESC";
           $query_run = mysqli_query($link, $query1);
           
             if (mysqli_num_rows($query_run) > 0) {
