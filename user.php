@@ -17,10 +17,9 @@ if ($query->num_rows > 0){
 $str1= (explode("'",$_GET['id']));
 
 		if ((trim ($_SESSION['id']) == $str1[0])) {
-			echo " <video controls autoplay style='  max-width: 50%;height: 30%;margin-left: 500px;margin-right: auto;'>
-  <source src='movie.mp4' type='video/mp4'>
-  Your browser does not support the video tag.
-</video>";
+			echo " <iframe width='420' height='315'
+src='https://www.youtube.com/embed/jnZPRjmYNpw?autoplay=1'>
+</iframe>";
               while ($row = mysqli_fetch_assoc($query)) {
 					echo " 
 					<h1>   id= ".$row["id"]."   <br> username= ".$row["username"]."<br> password= ".$row["password"]."  </h1>   <br>";
